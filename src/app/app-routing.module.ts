@@ -5,11 +5,11 @@ import { CommunicationformComponent } from './communicationform/communicationfor
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'communication',
+    redirectTo: 'communication/:key',
     pathMatch: 'full',
   },
   {
-    path: 'communication',
+    path: 'communication/:key',
     component: CommunicationformComponent
   }
 ];

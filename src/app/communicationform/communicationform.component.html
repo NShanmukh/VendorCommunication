@@ -1,77 +1,76 @@
 <div style="text-align: center;">
-    <img style="width: 132px;height: 32px;margin-top: 12px;" src="assets/logos/voltas.png">
-  </div>
-  <h1 style="padding:18px; text-align: center;">COMMUNICATION ON VOLTAS RESTRUCTURING</h1>
-    
-  <app-alert [message]="successMessage"  [headMessage]="headMes" *ngIf="success" (close)="closeAlert()"></app-alert>
-  <form [formGroup]="communicationForm" (ngSubmit)="onIntermediateFormSubmit()" style="padding:18px;">
-    <div class="col-xs-12 form-group">
-      <label for="email">1. Email <b style="color: red;">*</b></label>
-      <input type="text" formControlName="email" id="email" class="form-control noActive" required>
-      <!-- <span class="help-text" style="color: red;"
+  <img style="width: 132px;height: 32px;margin-top: 12px;" src="assets/logos/voltas.png">
+</div>
+<h1 style="padding:18px; text-align: center;">COMMUNICATION ON VOLTAS RESTRUCTURING</h1>
+
+<app-alert [message]="successMessage" [headMessage]="headMes" *ngIf="success" (close)="closeAlert()"></app-alert>
+<form [formGroup]="communicationForm" (ngSubmit)="onIntermediateFormSubmit()" style="padding:18px;">
+  <div class="col-xs-12 form-group">
+    <label for="email">1. Email <b style="color: red;">*</b></label>
+    <input type="text" formControlName="email" id="email" class="form-control noActive" required>
+    <!-- <span class="help-text" style="color: red;"
         *ngIf="!communicationForm.get('email').valid && communicationForm.get('email').touched && communicationForm.get('email').errors.email ">Please enter a valid Email Address !</span>
        -->
-  
-      
-    </div>
-    <div class="form-group">
-      <label for="vendorCode">2. Vendor code (as per datamatics portal vendor login)</label>
-      <input type="text" class="form-control noActive" formControlName="vendorCode" id="vendorCode">
-      <!-- <span class="help-text" style="color: red;"
+
+
+  </div>
+  <div class="form-group">
+    <label for="vendorCode">2. Vendor code (as per datamatics portal vendor login)</label>
+    <input type="text" class="form-control noActive" formControlName="vendorCode" id="vendorCode">
+    <!-- <span class="help-text" style="color: red;"
         *ngIf="!communicationForm.get('vendorCode').valid && communicationForm.get('vendorCode').touched ">This field is
         mandatory !</span> -->
-    </div>
+  </div>
 
-    <div class="form-group">
-      <label for="vendorName">3. Vendor Name <b style="color: red;">*</b></label>
-      <input type="text" class="form-control noActive" formControlName="vendorName" id="vendorName">
-      <!-- <span class="help-text" style="color: red;"
+  <div class="form-group">
+    <label for="vendorName">3. Vendor Name <b style="color: red;">*</b></label>
+    <input type="text" class="form-control noActive" formControlName="vendorName" id="vendorName">
+    <!-- <span class="help-text" style="color: red;"
         *ngIf="!communicationForm.get('vendorName').valid && communicationForm.get('vendorName').touched ">This
         field is mandatory !</span> -->
-  
-    </div>
-    
-    <div>
-      <span>4. Confirmation <span><i style="color: #9a9898;">(Mark only one oval.)</i></span><b style="color: red;">*</b></span>
-    </div>    
-    <br />
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio"  formControlName="confirmation"
-          [value]="true">
-      <label class="form-check-label"  >Yes</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio"  formControlName="confirmation"
-          [value]="false">
-      <label class="form-check-label"  >No</label>
-    </div>
-    <br />
-    <br />
-    <div class="form-group">
-        <label for="remarks">5. Remarks</label>
-        <textarea type="text" class="form-control noActive" formControlName="remarks" id="remarks"></textarea>
-        <!-- <span class="help-text" style="color: red;"
+
+  </div>
+
+  <div>
+    <span>4. Confirmation <span><i style="color: #9a9898;">(Mark only one oval.)</i></span><b
+        style="color: red;">*</b></span>
+  </div>
+  <br />
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" formControlName="confirmation" [value]="true">
+    <label class="form-check-label">Yes</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" formControlName="confirmation" [value]="false">
+    <label class="form-check-label">No</label>
+  </div>
+  <br />
+  <br />
+  <div class="form-group">
+    <label for="remarks">5. Remarks</label>
+    <textarea type="text" class="form-control noActive" formControlName="remarks" id="remarks"></textarea>
+    <!-- <span class="help-text" style="color: red;"
           *ngIf="!communicationForm.get('remarks').valid && communicationForm.get('remarks').touched ">This
           field is mandatory !</span> -->
-    
-      </div>
 
-      <div class="form-group">
-        <label class="switch">
-            <input type="checkbox" formControlName="sendCopy" >
-            
-            <span class="slider round"></span>
-          </label>
-          <span>Send me a copy of my responses.</span>
-      </div>
-     
-    <br />
-    <br />
-    
-    <div class="col-xs-12" style="float: right;">
-      <button type="submit"  class="btn btn-primary">Submit</button>
-    </div>
-  
-    <b>
-      <hr style="color: #e5e5e5;border: 1px solid;margin-top: 60px;" /></b>
-  </form>
+  </div>
+
+  <div class="form-group">
+    <label class="switch">
+      <input type="checkbox" formControlName="sendCopy">
+      <span class="slider round"></span>
+    </label>
+    <span>Send me a copy of my responses.</span>
+  </div>
+
+  <br />
+  <br />
+
+  <div class="col-12" style="float: right;">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+  <b>
+    <hr style="color: #e5e5e5;border: 1px solid;margin-top: 60px;" />
+  </b>
+</form>

@@ -9,8 +9,8 @@ export class CommunicationService {
   baseUrl = 'https://vserveq.voltasworld.com/VCOMM/api';
   constructor(private http:HttpClient) { }
 
-  getFeedbackSubmissionData(key){
-    return this.http.get(this.baseUrl + '/Feedback/GetFeedBackDetailsBySalesOrderNo' + '/' + key).pipe(map((data: any) => {
+  getCommSubmissionData(key){
+    return this.http.get(this.baseUrl + '/Communication/GetSubmitedRestructuringByRestructuringKey' + '/' + key).pipe(map((data: any) => {
       return data;
     }));
   }
@@ -18,7 +18,7 @@ export class CommunicationService {
   createVendorCommunication(body: any, key: string) {
     const headers = { 'content-type': 'application/json' };
     const bodydata = JSON.stringify(body)
-    return this.http.post(this.baseUrl + '/Feedback/CreateOrUpdateIntermediateCompletionFeedBack' + '/' + key, bodydata, { 'headers': headers }).pipe(map((data: any) => {
+    return this.http.post(this.baseUrl + '/Communication/CreateNewRestructuring', bodydata, { 'headers': headers }).pipe(map((data: any) => {
       return data;
     }));
   }

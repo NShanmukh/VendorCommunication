@@ -19,14 +19,13 @@ export class CommunicationformComponent implements OnInit {
   constructor(private fb: FormBuilder, private commService: CommunicationService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe((params: any) => {
       this.key = params['params'].key;
-      this.type = params['params'].type;
-      // this.stepper.selectedIndex = 3
     });
   }
 
   ngOnInit(): void {
     this.communicationForm = this.fb.group({
       rid: [''],
+      restructuringKey: [this.key],
       email: ['', [Validators.required, Validators.email]],
       vendorCode: [''],
       vendorName: ['', Validators.required],
@@ -34,7 +33,7 @@ export class CommunicationformComponent implements OnInit {
       remarks: [''],
       sendCopy: [false]
     });
-    // this.getSubmissionFormStatus(this.key);
+    this.getSubmissionFormStatus(this.key);
   }
 
   onIntermediateFormSubmit() {
@@ -59,9 +58,32 @@ export class CommunicationformComponent implements OnInit {
           this.communicationForm.reset();
         }
       }
-    }), err => {
-      console.log(err)
-    };
+    },err=>{
+      this.headMes = 'You\'ve already Submitted!';
+        this.successMessage = '';
+        this.success = true;
+        this.communicationForm.reset();
+        this.communicationForm.patchValue({
+          restructuringKey: this.key
+        })
+    })
+  }
+
+  getSubmissionFormStatus(key) {
+    debugger;
+    this.commService.getCommSubmissionData(key).subscribe((data) => {
+      if (data) {
+        this.headMes = 'You\'ve already Submitted!';
+        this.successMessage = '';
+        this.success = true;
+        this.communicationForm.reset();
+        this.communicationForm.patchValue({
+          restructuringKey: this.key
+        })
+      }
+    },err=>{
+      this.headMes = 'Error occured. Please try again';       
+    })
   }
 
   closeAlert() {
