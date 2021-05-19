@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dpr-feedback": {
+    "VendorCommunication": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dpr-feedback",
+            "outputPath": "dist/VendorCommunication",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dpr-feedback:build"
+            "browserTarget": "VendorCommunication:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dpr-feedback:build:production"
+              "browserTarget": "VendorCommunication:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dpr-feedback:build"
+            "browserTarget": "VendorCommunication:build"
           }
         },
         "test": {
@@ -111,18 +111,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dpr-feedback:serve"
+            "devServerTarget": "VendorCommunication:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dpr-feedback:serve:production"
+              "devServerTarget": "VendorCommunication:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "dpr-feedback",
+  "defaultProject": "VendorCommunication",
   "cli": {
     "analytics": "2bec98a9-4dc3-4694-aba0-924ff239016c"
   }

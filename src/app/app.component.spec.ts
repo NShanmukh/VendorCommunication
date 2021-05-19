@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dpr-feedback'`, () => {
+  it(`should have as title 'VendorCommunication'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dpr-feedback');
+    expect(app.title).toEqual('VendorCommunication');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('dpr-feedback app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('VendorCommunication app is running!');
   });
 });

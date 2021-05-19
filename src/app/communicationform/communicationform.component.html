@@ -8,26 +8,23 @@
   <div class="col-xs-12 form-group">
     <label for="email">1. Email <b style="color: red;">*</b></label>
     <input type="text" formControlName="email" id="email" class="form-control noActive" required>
-    <!-- <span class="help-text" style="color: red;"
-        *ngIf="!communicationForm.get('email').valid && communicationForm.get('email').touched && communicationForm.get('email').errors.email ">Please enter a valid Email Address !</span>
-       -->
-
-
+    <span class="help-text" style="color: red;"
+        *ngIf="!communicationForm.get('email').valid && communicationForm.get('email').touched ">Please enter a valid Email Address !</span>
+      
   </div>
   <div class="form-group">
     <label for="vendorCode">2. Vendor code (as per datamatics portal vendor login)</label>
-    <input type="text" class="form-control noActive" formControlName="vendorCode" id="vendorCode">
-    <!-- <span class="help-text" style="color: red;"
-        *ngIf="!communicationForm.get('vendorCode').valid && communicationForm.get('vendorCode').touched ">This field is
-        mandatory !</span> -->
+    <input type="number" class="form-control noActive" formControlName="vendorCode" id="vendorCode">
+    <span class="help-text" style="color: red;"
+        *ngIf="!communicationForm.get('vendorCode').valid && communicationForm.get('vendorCode').touched ">Please give valid Vendor Code</span>
   </div>
 
   <div class="form-group">
     <label for="vendorName">3. Vendor Name <b style="color: red;">*</b></label>
     <input type="text" class="form-control noActive" formControlName="vendorName" id="vendorName">
-    <!-- <span class="help-text" style="color: red;"
+    <span class="help-text" style="color: red;"
         *ngIf="!communicationForm.get('vendorName').valid && communicationForm.get('vendorName').touched ">This
-        field is mandatory !</span> -->
+        field is mandatory !</span>
 
   </div>
 
@@ -66,7 +63,7 @@
   <br />
   <br />
 
-  <div class="col-12" style="float: right;">
+  <div class="col-12" style="text-align: right;">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 
