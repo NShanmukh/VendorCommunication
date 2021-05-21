@@ -1,6 +1,11 @@
 <div style="text-align: center;">
   <img style="width: 132px;height: 32px;margin-top: 12px;" src="assets/logos/voltas.png">
 </div>
+<div *ngIf="isLoading" class="spinner"> 
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 <h1 style="padding:18px; text-align: center;">COMMUNICATION ON VOLTAS RESTRUCTURING</h1>
 
 <app-alert [message]="successMessage" [headMessage]="headMes" *ngIf="success" (close)="closeAlert()"></app-alert>
@@ -9,22 +14,24 @@
     <label for="email">1. Email <b style="color: red;">*</b></label>
     <input type="text" formControlName="email" id="email" class="form-control noActive" required>
     <span class="help-text" style="color: red;"
-        *ngIf="!communicationForm.get('email').valid && communicationForm.get('email').touched ">Please enter a valid Email Address !</span>
-      
+      *ngIf="!communicationForm.get('email').valid && communicationForm.get('email').touched ">Please enter a valid
+      Email Address !</span>
+
   </div>
   <div class="form-group">
     <label for="vendorCode">2. Vendor code (as per datamatics portal vendor login)</label>
     <input type="number" class="form-control noActive" formControlName="vendorCode" id="vendorCode">
     <span class="help-text" style="color: red;"
-        *ngIf="!communicationForm.get('vendorCode').valid && communicationForm.get('vendorCode').touched ">Please give valid Vendor Code</span>
+      *ngIf="!communicationForm.get('vendorCode').valid && communicationForm.get('vendorCode').touched ">Please give
+      valid Vendor Code</span>
   </div>
 
   <div class="form-group">
     <label for="vendorName">3. Vendor Name <b style="color: red;">*</b></label>
     <input type="text" class="form-control noActive" formControlName="vendorName" id="vendorName">
     <span class="help-text" style="color: red;"
-        *ngIf="!communicationForm.get('vendorName').valid && communicationForm.get('vendorName').touched ">This
-        field is mandatory !</span>
+      *ngIf="!communicationForm.get('vendorName').valid && communicationForm.get('vendorName').touched ">This
+      field is mandatory !</span>
 
   </div>
 

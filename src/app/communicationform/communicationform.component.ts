@@ -10,6 +10,7 @@ import { CommunicationService } from '../main/services/communication.service';
 })
 export class CommunicationformComponent implements OnInit {
   success = false;
+  isLoading=false;
   successMessage = '';
   headMes = '';
   communicationForm: FormGroup;
@@ -37,48 +38,67 @@ export class CommunicationformComponent implements OnInit {
   }
 
   onIntermediateFormSubmit() {
-    console.log(this.communicationForm.value);
-    debugger;
+
+    this.isLoading=true;
     if (this.communicationForm.invalid) {
-      this.communicationForm.markAllAsTouched();      
+      this.communicationForm.markAllAsTouched(); 
+      this.isLoading=false;     
       return;
     }
-    this.communicationForm.value.vendorCode = this.communicationForm.value.vendorCode.toString();
+    if(this.communicationForm.value.vendorCode){
+      this.communicationForm.value.vendorCode = this.communicationForm.value.vendorCode.toString();
+    }
     this.commService.createVendorCommunication(this.communicationForm.value, this.key).subscribe((data: any) => {
       if (data) {
+        this.isLoading=false;     
         if (data.id === 0) {
           this.headMes = 'Oops!'
+          this.isLoading=false;     
           this.successMessage = data.message;
           this.success = true;
           this.communicationForm.reset();
+          this.communicationForm.patchValue({
+            restructuringKey: this.key,
+            confirmation: true,
+            sendCopy: false
+          })
           return;
         }
-        this.headMes = 'CONGRATULATIONS!'
+        // this.headMes = 'CONGRATULATIONS!'
+        this.isLoading=false;
         this.successMessage = 'Your form has been submitted successfully';
         this.success = true;
         this.communicationForm.reset();
         this.communicationForm.patchValue({
-          restructuringKey: this.key
+          restructuringKey: this.key,
+          confirmation: true,
+          sendCopy: false
         })
       }
     }, err => {
-      this.headMes = 'Erro occured. Please try again';
+      this.isLoading=false;     
+      this.headMes = 'Error occured. Please try again';
     })
   }
 
   getSubmissionFormStatus(key) {
     debugger;
+    this.isLoading=true;     
     this.commService.getCommSubmissionData(key).subscribe((data) => {
       if (data) {
+        this.isLoading=false;     
         this.headMes = 'Oops!'
         this.successMessage = 'You\'ve already Submitted!';
         this.success = true;
         this.communicationForm.reset();
         this.communicationForm.patchValue({
-          restructuringKey: this.key
+          restructuringKey: this.key,
+          confirmation: true,
+          sendCopy: false
         })
       }
     }, err => {
+      this.isLoading=false;     
       this.headMes = 'Error occured. Please try again';
     })
   }

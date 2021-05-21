@@ -34,3 +34,14 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.26);
   .btn-primary{
     border-radius: 0px;
 }
+
+
+::ng-deep .spinner {
+    display: block !important;
+    position: fixed !important;
+    z-index: 1031;
+    pointer-events: none;
+    /* //backdrop-filter: blur(3px); */
+    top: calc(50% - (50px / 2)) !important; /* where ... is the element's height */
+    right: calc(50% - (50px / 2)); /* where ... is the element's width */
+  }

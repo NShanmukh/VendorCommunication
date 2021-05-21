@@ -111,3 +111,13 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+::ng-deep .spinner {
+  display: block !important;
+  position: fixed !important;
+  z-index: 1031;
+  pointer-events: none;
+  /* backdrop-filter: blur(3px); */
+  top: calc(50% - (50px / 2)) !important; /* where ... is the element's height */
+  right: calc(50% - (50px / 2)); /* where ... is the element's width */
+}
